@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://kit.fontawesome.com/ba77f5fca1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 
     <title>Movie Search</title>
@@ -12,17 +13,22 @@
 <body>
     
     <header>
-
+        <h1>Find your film</h1>
+        <p>My Watchlist</p>
     </header>
 
     <div class="input-container">
-        <img src="images/search.png" alt="search icon">
-        <input type="text">
-        <button>Search</button>
+        <div class="icon-container">
+            <i class="fa-sharp fa-solid fa-lg fa-magnifying-glass" style="color: #9ca3af;"></i>
+        </div>
+        <input class="search-input" type="text">
+        <button class="search-btn">Search</button>
     </div>
 
-    <section>
-        
+    <section class="main-explore-section">
+        <img class="explore-img" src="/images/movie-film.png" alt="">
+        <p class="explore-text">Start exploring</p>
+
     </section>
     
     <script src="main.js"></script>

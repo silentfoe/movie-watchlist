@@ -1,0 +1,119 @@
+/* CSS reset sheet from Josh Comeau */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+
+body {
+    background: #0E0E0E;
+}
+
+/* mobile design */
+
+header {
+   background-image: url("./images/movie.png");
+   background-repeat: no-repeat;
+   min-width: 100vw;
+   height: 208px;
+}
+
+.input-container {
+    display: flex;
+    width: 414px;
+    height: 40px;
+    position: relative;
+    bottom: 1.25em;
+    margin: 0 auto;
+}
+.icon-container {
+    background: #2E2E2F;
+    display: flex;
+    align-items: center;
+    border-radius: 6px 0px 0px 6px;
+    padding: 0 .25em;
+}
+.search-input {
+    border: none;
+    background: #2E2E2F;
+    width: 70%;
+
+}
+.search-btn {
+    border: none;
+    background: #4B4B4B;
+    padding: 0 40px;
+    border-radius: 0px 6px 6px 0px;
+}
+
+/* lower half of page below search bar */
+
+.main-explore-section {
+    min-width: 100vw;
+    height: 571px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.explore-img {
+    margin-top: 8em;
+}
+
+.explore-text {
+    color: #2E2E2F;
+    
+    
+}
+
+
+
+@media (min-width: 551px) {
+    header{
+        background-image: url("./images/movie.png");
+        background-size: cover;
+        height: 35%;
+    }
+}
