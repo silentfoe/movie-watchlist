@@ -46,6 +46,8 @@
     overflow-wrap: break-word;
   }
 
+/* TO DO LIST: main page font family, main page color for text, main page font placement on the page, add my watchlist link to watchlist page, set up parameters for when the user does not enter anything or when the movie is not found in the API search, input field text and placeholder text.  */
+
 
 body {
     background: #0E0E0E;
