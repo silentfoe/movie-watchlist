@@ -53,6 +53,16 @@ body {
     background: #0E0E0E;
 }
 
+a {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    color: #ffffff;
+}
+
 /* mobile design */
 
 header {
@@ -60,15 +70,47 @@ header {
    background-repeat: no-repeat;
    min-width: 100vw;
    height: 208px;
+   font-family: 'Inter', sans-serif;
+}
+
+.search-header,
+.watchlist-header {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.search-title,
+.watchlist-title {
+    font-size: 2.7rem;
+    font-weight: 800;
+}
+
+.watchlist-link,
+.search-link {
+    font-size: .875rem;
+    font-weight: 700;
+}
+.watchlist-link:hover,
+.search-link:hover {
+    color: lightskyblue;
+}
+
+.icon-img {
+    padding: 0 8px;
 }
 
 .input-container {
     display: flex;
-    width: 414px;
+    min-width: 320px;
+    max-width: 80%;
     height: 40px;
     position: relative;
     bottom: 1.25em;
     margin: 0 auto;
+
 }
 .icon-container {
     background: #2E2E2F;
@@ -81,6 +123,8 @@ header {
     border: none;
     background: #2E2E2F;
     width: 70%;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
 
 }
 .search-btn {
@@ -88,11 +132,16 @@ header {
     background: #4B4B4B;
     padding: 0 40px;
     border-radius: 0px 6px 6px 0px;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    cursor: pointer;
+    
 }
 
 /* lower half of page below search bar */
 
-.main-explore-section {
+.main-explore-section,
+.main-watchlist-section {
     min-width: 100vw;
     height: 571px;
     display: flex;
@@ -110,6 +159,59 @@ header {
     
 }
 
+.watchlist-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #787878;
+    
+
+}
+
+.watchlist-to-search {
+    font-family: 'Inter', sans-serif;
+    font-size: .875rem;
+    font-weight: 700;
+    color: #ffffff;
+
+}
+
+.main-watchlist-section {
+    margin-top: 10em
+}
+
+.add-movies {
+    display: flex;
+    gap: .5em;
+    margin-top: 1em;
+}
+
+.not-found-container {
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12em;
+}
+
+.not-found {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #787878;
+    
+}
+
+
+.movie-data-container {
+    color: #ffffff;
+}
+
+
+
+
+
+
 
 
 @media (min-width: 551px) {
@@ -118,4 +220,16 @@ header {
         background-size: cover;
         height: 35%;
     }
+
+    .search-header,
+    .watchlist-header {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .input-container {
+        max-width: 500px;
+    }
+
+    
 }

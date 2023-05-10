@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/ba77f5fca1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 
@@ -12,16 +16,16 @@
 </head>
 <body>
     
-    <header>
-        <h1>Find your film</h1>
-        <p>My Watchlist</p>
+    <header class="search-header">
+        <h1 class="search-title">Find your film</h1>
+        <a href="watchlist.html"><p class="watchlist-link">My Watchlist</p></a>
     </header>
 
     <div class="input-container">
         <div class="icon-container">
-            <i class="fa-sharp fa-solid fa-lg fa-magnifying-glass" style="color: #9ca3af;"></i>
+            <i class="fa-sharp fa-solid fa-lg fa-magnifying-glass icon-img" style="color: #9ca3af;"></i>
         </div>
-        <input class="search-input" type="text">
+        <input class="search-input" type="text" placeholder="Search for movies">
         <button class="search-btn">Search</button>
     </div>
 
