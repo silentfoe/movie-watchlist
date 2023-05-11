@@ -19,11 +19,20 @@ document.querySelector('button').addEventListener('click', async () => {
     } catch (error) {
         
         
-        moviesSection.innerHTML = `<div class="not-found-container"><p class="not-found">Unable to find what you're looking for. Please try another search.</p></div>`
+        console.log(error)
         
     }
+
+    // if the array is empty, then return warning in the DOM
+    if(movieIMDBNumArray.length === 0){
+
+        moviesSection.innerHTML = `<div class="not-found-container"><p class="not-found">Unable to find what you're looking for. Please try another search.</p></div>`
+
+    }else {
     
     getFullMovieData(movieIMDBNumArray) // calling the array filled with the movie title IMDB ID's
+
+    }
   
 })
 
@@ -46,33 +55,77 @@ async function getFullMovieData(movieID) {
         throw error
     }
     
-    console.log(fullMovieDataArray)
-    console.log(fullMovieDataArray[0].Ratings[0].Value)
+    console.log(fullMovieDataArray) // don't need this line, will need to remove
     
-    displayMovieData(fullMovieDataArray)
+    
+    filterMovieDataArray(fullMovieDataArray)
 }
+
+
+function filterMovieDataArray(arrayOfMovieData){
+    
+    // removing all movies that don't have a picture to display
+    const filterMoviePoster = arrayOfMovieData.filter(movie => {
+        return movie.Poster !== 'N/A'
+    })
+
+    // removing all the games from the array
+    const filterMovieOrGame = filterMoviePoster.filter(movie => {
+        return movie.Type !== 'game'
+    })
+
+    displayMovieData(filterMovieOrGame)
+}
+
+
+
 
 // function below is displaying the movie data in the DOM
 function displayMovieData(movieDataArray) {
     
-    let movieDataParts = ''
-
-    movieDataArray.map(movie => {
-        movieDataParts += 
-        `<div class="movie-data-container">
-            <img class="movie-img" src=${movie.Poster} />
-            <div class="movie-contents">
-                <div class="movie-title-rating">${movie.Title}${movie.Ratings[0].Value}</div>
-                <div class="movie-time-genre-add">
-                ${movie.Runtime}${movie.Genre}<a href="search.html" id="Add-to-watchlist"><i class=" circle-icon fa-solid fa-circle-plus" style="color: #ffffff;"></i>Watchlist</a>
+    // movie.Ratings[0].Value.split('/')[0] is only showing the first number in the rating value, does not include the 10
+    
+        
+        let movieDataParts = ''
+    
+        movieDataArray.map(movie => {
+            movieDataParts += 
+            `<div class="movie-data-container">
+                <img class="movie-img" src=${movie.Poster} />
+                <div class="movie-contents">
+                    <div class="movie-title-rating">
+                        <div class="movie-title">
+                            ${movie.Title}
+                        </div>
+                        <div class="star-rating">
+                            <i class="fa-sharp fa-solid fa-star" style="color: #e9ed02;"></i>
+                            ${movie.Ratings[0].Value.split('/')[0]}
+                        </div>
+                    </div>
+                    <div class="movie-time-genre-add">
+                        <div class="movie-runtime">
+                            ${movie.Runtime}
+                        </div>
+                        <div class="movie-genre">
+                            ${movie.Genre}
+                        </div>
+                        <div class="add-watchlist">
+                            <a href="search.html" id="Add-to-watchlist"><i class=" circle-icon fa-solid fa-circle-plus" style="color: #ffffff;"></i>Watchlist</a>
+                        </div>
+                    </div>
+                    <div class="movie-plot">
+                        ${movie.Plot}
+                    </div>
                 </div>
-                <div class="movie-plot">${movie.Plot}</div>
             </div>
-        </div>
-        <hr>`
-    })
+            <hr/>`
+        })
+    
+        moviesSection.innerHTML = movieDataParts
 
-    moviesSection.innerHTML = movieDataParts
-}
+    }
+
+
+
 
 
