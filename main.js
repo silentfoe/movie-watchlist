@@ -4,6 +4,20 @@ let inputVal = document.querySelector('input')
 moviesSection = document.getElementById('show-movies')
 
 
+// *** Things left to do. ***
+// *** Allow app to work when using the 'enter' key. (currently only works using the button)
+// *** Allow user to add movie to local storage with the "plus" button after searching the movies. Add movie ID to an array???
+// *** Render movies stored in local storage when they access the "my watchlist page"
+// *** See if I can clean up the CSS a little bit and make the styling look better
+// ***
+// ***
+// ***
+// ***
+// ***
+
+
+
+
 document.querySelector('button').addEventListener('click', async () => {
     
     let movieIMDBNumArray = [] // setting an empty array to hold all the movie title IMDB ID's
@@ -33,6 +47,8 @@ document.querySelector('button').addEventListener('click', async () => {
     getFullMovieData(movieIMDBNumArray) // calling the array filled with the movie title IMDB ID's
 
     }
+
+    inputVal.value = ''
   
 })
 
@@ -88,37 +104,71 @@ function displayMovieData(movieDataArray) {
         
         let movieDataParts = ''
     
-        movieDataArray.map(movie => {
-            movieDataParts += 
-            `<div class="movie-data-container">
-                <img class="movie-img" src=${movie.Poster} />
-                <div class="movie-contents">
-                    <div class="movie-title-rating">
-                        <div class="movie-title">
-                            ${movie.Title}
+        movieDataArray.map((movie, indx) => {
+
+            if(indx === movieDataArray.length - 1){
+                movieDataParts += 
+                `<div class="movie-data-container">
+                    <img class="movie-img" src=${movie.Poster} />
+                    <div class="movie-contents">
+                        <div class="movie-title-rating">
+                            <div class="movie-title">
+                                ${movie.Title}
+                            </div>
+                            <div class="star-rating">
+                                <i class="fa-sharp fa-solid fa-star" style="color: #e9ed02;"></i>
+                                ${movie.Ratings.length > 0 ?movie.Ratings[0].Value.split('/')[0] : ''}
+                            </div>
                         </div>
-                        <div class="star-rating">
-                            <i class="fa-sharp fa-solid fa-star" style="color: #e9ed02;"></i>
-                            ${movie.Ratings[0].Value.split('/')[0]}
+                        <div class="movie-time-genre-add">
+                            <div class="movie-runtime">
+                                ${movie.Runtime}
+                            </div>
+                            <div class="movie-genre">
+                                ${movie.Genre}
+                            </div>
+                            <div class="add-watchlist">
+                                <a href="search.html" id="Add-to-watchlist"><i class="movie-circle-icon fa-solid fa-circle-plus" style="color: #ffffff;"></i>Watchlist</a>
+                            </div>
+                        </div>
+                        <div class="movie-plot">
+                            ${movie.Plot}
                         </div>
                     </div>
-                    <div class="movie-time-genre-add">
-                        <div class="movie-runtime">
-                            ${movie.Runtime}
+                </div>`
+
+            }else {
+                movieDataParts += 
+                `<div class="movie-data-container">
+                    <img class="movie-img" src=${movie.Poster} />
+                    <div class="movie-contents">
+                        <div class="movie-title-rating">
+                            <div class="movie-title">
+                                ${movie.Title}
+                            </div>
+                            <div class="star-rating">
+                                <i class="fa-sharp fa-solid fa-star" style="color: #e9ed02;"></i>
+                                ${movie.Ratings.length > 0 ?movie.Ratings[0].Value.split('/')[0] : ''}
+                            </div>
                         </div>
-                        <div class="movie-genre">
-                            ${movie.Genre}
+                        <div class="movie-time-genre-add">
+                            <div class="movie-runtime">
+                                ${movie.Runtime}
+                            </div>
+                            <div class="movie-genre">
+                                ${movie.Genre}
+                            </div>
+                            <div class="add-watchlist">
+                                <a href="search.html" id="Add-to-watchlist"><i class="movie-circle-icon fa-solid fa-circle-plus" style="color: #ffffff;"></i>Watchlist</a>
+                            </div>
                         </div>
-                        <div class="add-watchlist">
-                            <a href="search.html" id="Add-to-watchlist"><i class=" circle-icon fa-solid fa-circle-plus" style="color: #ffffff;"></i>Watchlist</a>
+                        <div class="movie-plot">
+                            ${movie.Plot}
                         </div>
-                    </div>
-                    <div class="movie-plot">
-                        ${movie.Plot}
                     </div>
                 </div>
-            </div>
-            <hr/>`
+                <hr/>`
+            }
         })
     
         moviesSection.innerHTML = movieDataParts

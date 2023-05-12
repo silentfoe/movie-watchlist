@@ -68,7 +68,7 @@ h2 {
 header {
    background-image: url("./images/movie.png");
    background-repeat: no-repeat;
-   min-width: 100vw;
+   max-width: 100%;
    height: 208px;
    font-family: 'Inter', sans-serif;
 }
@@ -186,6 +186,8 @@ header {
     margin-top: 1em;
 }
 
+/* styling for when the user enters something that is not found */
+
 .not-found-container {
     max-width: 300px;
     display: flex;
@@ -203,19 +205,21 @@ header {
     
 }
 
+/* styling for the movie array elements that are being shown in the DOM */
+
 .movie-data-container {
     font-family: 'Inter', sans-serif;
     color: #ffffff;
-    max-width: 500px;
-    
+    max-width: 450px;
     display: flex;
     justify-content: space-between;
+    margin: 2em 0;
 }
 
 .movie-img {
   width: 100px;
   height: 148px;
-  margin-left: auto;
+  
   object-fit: cover;
 }
 
@@ -243,6 +247,10 @@ header {
   margin: .75em 0; 
 }
 
+.movie-circle-icon {
+  padding-right: .4em;
+}
+
 .movie-plot {
   font-size: .875rem;
   color: #a5a5a5;
@@ -250,14 +258,14 @@ header {
 }
 
 hr {
-  width: 500px;
+  width: 450px;
 
 }
 
 
 
 
-
+/* responsive design for larger screens */
 
 
 
