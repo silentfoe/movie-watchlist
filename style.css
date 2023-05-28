@@ -68,7 +68,7 @@ h2 {
 header {
    background-image: url("./images/movie.png");
    background-repeat: no-repeat;
-   max-width: 100%;
+   width: 100%;
    height: 208px;
    font-family: 'Inter', sans-serif;
 }
@@ -142,7 +142,7 @@ header {
 
 .main-explore-section,
 .main-watchlist-section {
-    min-width: 100vw;
+    width: 100%;
     height: 571px;
     display: flex;
     flex-direction: column;
@@ -273,6 +273,7 @@ hr {
     header{
         background-image: url("./images/movie.png");
         background-size: cover;
+        width: 100%;
         height: 35%;
     }
 
