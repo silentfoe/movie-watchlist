@@ -2,224 +2,230 @@
 /*
   1. Use a more-intuitive box-sizing model.
 */
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  /*
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
     2. Remove default margin
   */
-  * {
-    margin: 0;
-  }
-  /*
+* {
+  margin: 0;
+}
+/*
     3. Allow percentage-based heights in the application
   */
-  html, body {
-    height: 100%;
-  }
-  /*
+html,
+body {
+  height: 100%;
+}
+/*
     Typographic tweaks!
     4. Add accessible line-height
     5. Improve text rendering
   */
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  /*
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
     6. Improve media defaults
   */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  /*
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
     7. Remove built-in form typography styles
   */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  /*
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
     8. Avoid text overflows
   */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
 
 /* TO DO LIST: main page font family, main page color for text, main page font placement on the page, add my watchlist link to watchlist page, set up parameters for when the user does not enter anything or when the movie is not found in the API search, input field text and placeholder text.  */
 
-
 body {
-    background: #0E0E0E;
+  background: #0e0e0e;
 }
 
 a {
-    color: #ffffff;
-    text-decoration: none;
-    cursor: pointer;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 h2 {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 /* mobile design */
 
 header {
-   background-image: url("./images/movie.png");
-   background-repeat: no-repeat;
-   width: 100%;
-   height: 208px;
-   font-family: 'Inter', sans-serif;
+  background-image: url("./images/movie.png");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 208px;
+  font-family: "Inter", sans-serif;
 }
 
 .search-header,
 .watchlist-header {
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .search-title,
 .watchlist-title {
-    font-size: 2.7rem;
-    font-weight: 800;
+  font-size: 2.7rem;
+  font-weight: 800;
 }
 
 .watchlist-link,
 .search-link {
-    font-size: .875rem;
-    font-weight: 700;
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 .watchlist-link:hover,
 .search-link:hover {
-    color: lightskyblue;
+  color: lightskyblue;
 }
 
 .icon-img {
-    padding: 0 8px;
+  padding: 0 8px;
 }
 
 .input-container {
-    display: flex;
-    min-width: 320px;
-    max-width: 80%;
-    height: 40px;
-    position: relative;
-    bottom: 1.25em;
-    margin: 0 auto;
-
+  display: flex;
+  min-width: 320px;
+  max-width: 80%;
+  height: 40px;
+  position: relative;
+  bottom: 1.25em;
+  margin: 0 auto;
 }
 .icon-container {
-    background: #2E2E2F;
-    display: flex;
-    align-items: center;
-    border-radius: 6px 0px 0px 6px;
-    padding: 0 .25em;
+  background: #2e2e2f;
+  display: flex;
+  align-items: center;
+  border-radius: 6px 0px 0px 6px;
+  padding: 0 0.25em;
 }
 .search-input {
-    border: none;
-    background: #2E2E2F;
-    width: 70%;
-    font-family: 'Inter', sans-serif;
-    color: #ffffff;
-
+  border: none;
+  background: #2e2e2f;
+  width: 70%;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
 }
 .search-btn {
-    border: none;
-    background: #4B4B4B;
-    padding: 0 40px;
-    border-radius: 0px 6px 6px 0px;
-    font-family: 'Inter', sans-serif;
-    color: #ffffff;
-    cursor: pointer;
-    
+  border: none;
+  background: #4b4b4b;
+  padding: 0 40px;
+  border-radius: 0px 6px 6px 0px;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 /* lower half of page below search bar */
 
 .main-explore-section,
 .main-watchlist-section {
-    width: 100%;
-    height: 571px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  height: 571px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .explore-img {
-    margin-top: 8em;
+  margin-top: 8em;
 }
 
 .explore-text {
-    color: #2E2E2F;
-    
-    
+  color: #2e2e2f;
 }
 
 .watchlist-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #787878;
-    
-
+  font-family: "Inter", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #787878;
 }
 
 .watchlist-to-search {
-    font-family: 'Inter', sans-serif;
-    font-size: .875rem;
-    font-weight: 700;
-    color: #ffffff;
-
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .main-watchlist-section {
-    margin-top: 10em
+  margin-top: 10em;
 }
 
 .add-movies {
-    display: flex;
-    gap: .5em;
-    margin-top: 1em;
+  display: flex;
+  gap: 0.5em;
+  margin-top: 1em;
 }
 
 /* styling for when the user enters something that is not found */
 
 .not-found-container {
-    max-width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 12em;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12em;
 }
 
 .not-found {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #787878;
-    text-align: center;
-    
+  font-family: "Inter", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #787878;
+  text-align: center;
 }
 
 /* styling for the movie array elements that are being shown in the DOM */
 
 .movie-data-container {
-    font-family: 'Inter', sans-serif;
-    color: #ffffff;
-    max-width: 450px;
-    display: flex;
-    justify-content: space-between;
-    margin: 2em 0;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  max-width: 450px;
+  display: flex;
+  justify-content: space-between;
+  margin: 2em 0;
 }
 
 .movie-img {
   width: 100px;
   height: 148px;
-  
+
   object-fit: cover;
 }
 
@@ -227,13 +233,13 @@ header {
   display: flex;
   flex-direction: column;
   max-width: 400px;
-  
+
   margin-left: 1.5em;
 }
 
 .movie-title-rating {
   display: flex;
-  gap: .5em;
+  gap: 0.5em;
 }
 
 .movie-title {
@@ -242,50 +248,41 @@ header {
 
 .movie-time-genre-add {
   display: flex;
-  font-size: .75rem;
-  gap: 1em; 
-  margin: .75em 0; 
+  font-size: 0.75rem;
+  gap: 1em;
+  margin: 0.75em 0;
 }
 
 .movie-circle-icon {
-  padding-right: .4em;
+  padding-right: 0.4em;
 }
 
 .movie-plot {
-  font-size: .875rem;
+  font-size: 0.875rem;
   color: #a5a5a5;
-  
 }
 
 hr {
   width: 450px;
-
 }
-
-
-
 
 /* responsive design for larger screens */
 
-
-
 @media (min-width: 551px) {
-    header{
-        background-image: url("./images/movie.png");
-        background-size: cover;
-        width: 100%;
-        height: 35%;
-    }
+  header {
+    background-image: url("./images/movie.png");
+    background-size: cover;
+    width: 100%;
+    height: 35%;
+  }
 
-    .search-header,
-    .watchlist-header {
-        flex-direction: row;
-        justify-content: space-around;
-    }
+  .search-header,
+  .watchlist-header {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 
-    .input-container {
-        max-width: 500px;
-    }
-
-    
+  .input-container {
+    max-width: 500px;
+  }
 }
