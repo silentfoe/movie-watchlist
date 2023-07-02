@@ -9,6 +9,8 @@
 // ***
 // ***
 
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+
 const inputVal = document.querySelector("input"); //for the input field of the search text on the main page
 
 const moviesSection = document.getElementById("show-movies"); // bottom half of main page with the "start exploring text"
@@ -45,10 +47,11 @@ document.querySelector("button").addEventListener("click", async () => {
 async function getFullMovieData(movieID) {
   try {
     for (let i = 0; i < movieID.length; i++) {
-      res = await fetch(
+      let res = await fetch(
         `http://www.omdbapi.com/?apikey=1a68644e&i=${movieID[i]}`
       );
-      fullMovieDataArray.push(await res.json());
+      let data = await res.json()
+      fullMovieDataArray.push(data);
     }
   } catch (error) {
     throw error;
@@ -68,6 +71,12 @@ function filterMovieDataArray(arrayOfMovieData) {
   displayMovieData(filterMovieOrGame);
 }
 
+// // adding ids to each movie
+// function addIdToMovie(movieArrayWithNoId) {
+//     const arrayWithId = movieArrayWithNoId.map(movie => movie.id === uuidv4())
+//     displayMovieData(arrayWithId)
+// }
+
 // function below is displaying the movie data in the DOM
 function displayMovieData(movieDataArray) {
   // movie.Ratings[0].Value.split('/')[0] is only showing the first number in the rating value, does not include the 10
@@ -76,7 +85,7 @@ function displayMovieData(movieDataArray) {
 
   movieDataArray.map((movie, indx) => {
     if (indx === movieDataArray.length - 1) {
-      movieDataParts += `<div class="movie-data-container">
+      movieDataParts += `<div class="movie-data-container" id="${movie.imdbID}">
                     <img class="movie-img" src=${movie.Poster} />
                     <div class="movie-contents">
                         <div class="movie-title-rating">
@@ -100,7 +109,7 @@ function displayMovieData(movieDataArray) {
                                 ${movie.Genre}
                             </div>
                             <div class="add-watchlist">
-                                <a href="search.html" id="Add-to-watchlist"><i class="movie-circle-icon fa-solid fa-circle-plus" style="color: #ffffff;"></i>Watchlist</a>
+                                <i data-id="${movie.imdbID}" class="movie-circle-icon fa-solid fa-circle-plus" style="color: #ffffff;">Watchlist</i>
                             </div>
                         </div>
                         <div class="movie-plot">
@@ -133,7 +142,7 @@ function displayMovieData(movieDataArray) {
                                 ${movie.Genre}
                             </div>
                             <div class="add-watchlist">
-                                <a href="search.html" id="Add-to-watchlist"><i class="movie-circle-icon fa-solid fa-circle-plus" style="color: #ffffff;"></i>Watchlist</a>
+                                <i data-id="${movie.imdbID}" class="movie-circle-icon fa-solid fa-circle-plus" style="color: #ffffff;">Watchlist</i>
                             </div>
                         </div>
                         <div class="movie-plot">
@@ -152,3 +161,15 @@ function resetSearch() {
     movieIMDBNumArray = []
     fullMovieDataArray = []
 }
+
+
+// using the data attribute to link the watchlist add button to the movie it was clicked on. Will need to add this to local storage now and change the icon to a minus. 
+document.getElementById('show-movies').addEventListener('click', (event) => {
+    
+    console.log(event)
+
+    const movie = fullMovieDataArray.filter(movie => movie.imdbID === event.target.dataset.id)
+
+    console.log(movie)
+    
+})
