@@ -1,10 +1,10 @@
 // *** Things left to do. ***
 // *** Allow app to work when using the 'enter' key. (currently only works using the button)
-// *** Allow user to add movie to local storage with the "plus" button after searching the movies. Add movie ID to an array???
+// *** 
 // *** Render movies stored in local storage when they access the "my watchlist page"
 // *** See if I can clean up the CSS a little bit and make the styling look better
-// *** Need to have a reset function that will clear the current search if I type in a new search
-// *** Use event.target.id---see if I can use the IMDB id or will have to add the id. Could I use the index?? This is for triggering an event listener to add the movie to the watchlist
+// *** Add the minus icon to the movies shown in the the movie watchlist page. Use the data-* attribute to link the icon to removing the movie from local storage
+// *** 
 // ***
 // ***
 // ***
@@ -12,11 +12,12 @@
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
 const inputVal = document.querySelector("input"); //for the input field of the search text on the main page
-
 const moviesSection = document.getElementById("show-movies"); // bottom half of main page with the "start exploring text"
 
 let movieIMDBNumArray = []; // setting an empty array to hold all the movie title IMDB ID's
 let fullMovieDataArray = []; // array to hold full set of data for all the movies searched
+let addToLocalStorageMovieArray = []
+
 
 document.querySelector("button").addEventListener("click", async () => {
   try {
@@ -166,10 +167,21 @@ function resetSearch() {
 // using the data attribute to link the watchlist add button to the movie it was clicked on. Will need to add this to local storage now and change the icon to a minus. 
 document.getElementById('show-movies').addEventListener('click', (event) => {
     
-    console.log(event)
-
-    const movie = fullMovieDataArray.filter(movie => movie.imdbID === event.target.dataset.id)
-
-    console.log(movie)
+    const movie = fullMovieDataArray.filter(movie => movie.imdbID === event.target.dataset.id)[0]
+    
+    addToLocalStorageMovieArray.push(movie) // do I need this array to hold the movie I am saving in local storage??? Or should this be deleted? 
+    localStorage.setItem(movie.imdbID, JSON.stringify(movie)) // adding the movie to local storage
+    addMovieToLocalStorage()
     
 })
+
+// function addMovieToLocalStorage(){
+    
+//     console.log(localStorage.map())
+    
+// }
+
+
+// function getMoviesFromLocalStorage() {
+
+// }
