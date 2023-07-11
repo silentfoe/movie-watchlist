@@ -184,11 +184,18 @@ header {
 }
 
 .main-watchlist-section {
-  margin-top: 10em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.watchlist-text {
+  margin: auto auto;
 }
 
 .add-movies {
   display: flex;
+  justify-content: center;
   gap: 0.5em;
   margin-top: 1em;
 }

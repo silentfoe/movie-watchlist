@@ -1,15 +1,13 @@
 // *** Things left to do. ***
 // *** Allow app to work when using the 'enter' key. (currently only works using the button)
-// *** Create a function for adding the html from the movie data. Right now have a lot of code that is duplicated. 
-// *** Render movies stored in local storage when they access the "my watchlist page" (this is partially done)
-// *** 
-// *** Add the minus icon to the movies shown in the the movie watchlist page. Use the data-* attribute to link the icon to removing the movie from local storage
+// *** refactor code...are there any places where I can drier? What can I clean up to make this better?
+// *** fix console error and tie the show local storage function to when I click the my watchlist text
 // ***
 // ***
 // ***
+// ***
+// *** Work on the responsiveness when I render movies on smaller screens, right now the movies shown throw off css
 // ***See if I can clean up the CSS a little bit and make the styling look better
-
-// import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
 const inputVal = document.querySelector("input"); //for the input field of the search text on the main page
 const moviesSection = document.getElementById("show-movies"); // bottom half of main page with the "start exploring text"
@@ -72,12 +70,6 @@ function filterMovieDataArray(arrayOfMovieData) {
 
   displayMovieData(filterMovieOrGame);
 }
-
-// // adding ids to each movie
-// function addIdToMovie(movieArrayWithNoId) {
-//     const arrayWithId = movieArrayWithNoId.map(movie => movie.id === uuidv4())
-//     displayMovieData(arrayWithId)
-// }
 
 // function below is displaying the movie data in the DOM
 function displayMovieData(movieDataArray) {
@@ -168,7 +160,7 @@ function resetSearch() {
   fullMovieDataArray = [];
 }
 
-// using the data attribute to link the watchlist add button to the movie it was clicked on. Will need to add this to local storage now and change the icon to a minus.
+// using the data attribute to link the watchlist add button to the movie it was clicked on. This adds the movie to local storage
 document.addEventListener("click", (event) => {
   if (event.target.dataset.id) {
     const movie = fullMovieDataArray.filter(
@@ -182,18 +174,14 @@ document.addEventListener("click", (event) => {
   }
 });
 
-
-
-
 // function that takes the movies from local storage and displays them on the my watchlist page
 function showMoviesStoredInLocalStorage() {
-  
-  if(localStorage.length > 0) {
+  if (localStorage.length > 0) {
     let showMoviesHtml = "";
-  
+
     for (let i = 0; i < localStorage.length; i++) {
       let movie = JSON.parse(Object.values(localStorage)[i]);
-  
+
       showMoviesHtml += ` 
         
         <div class="movie-data-container" id="${movie.imdbID}">
@@ -220,9 +208,9 @@ function showMoviesStoredInLocalStorage() {
                     ${movie.Genre}
                 </div>
                 <div class="add-watchlist">
-                    <i data-id="${
+                    <i data-remove="${
                       movie.imdbID
-                    }" class="movie-circle-icon fa-solid fa-circle-plus" style="color: #ffffff;">Watchlist</i>
+                    }" class="movie-circle-icon fa-solid fa-circle-minus" style="color: #ffffff;">Watchlist</i>
                 </div>
             </div>
             <div class="movie-plot">
@@ -230,21 +218,40 @@ function showMoviesStoredInLocalStorage() {
             </div>
         </div>
     </div>
-        
+    <hr/>    
         `;
     }
-
-
-    document.getElementById("show-watchlist").innerHTML = showMoviesHtml
-
+    document.getElementById("show-watchlist").style.justifyContent = 'flex-start'
+    document.getElementById("show-watchlist").innerHTML = showMoviesHtml;
+  } else {
+    document.getElementById("show-watchlist").innerHTML = `
+      <div class="watchlist-text">
+        <p class="watchlist-text">Your watchlist is looking a little empty...</p>
+        <div class="add-movies">
+          <a href="search.html" class="circle-to-search"
+            ><i
+              class="circle-icon fa-solid fa-circle-plus"
+              style="color: #ffffff"
+            ></i
+          ></a>
+          <p class="watchlist-to-search">Let's add some movies!</p>
+        </div>
+      </div>
+    
+    `;
   }
-
-
 }
 
 // calling the function in order to render any movies that might be in local storage
-showMoviesStoredInLocalStorage()
+showMoviesStoredInLocalStorage();
 
-// function getMoviesFromLocalStorage() {
+// removing the movie from local storage
 
-// }
+document.addEventListener("click", (event) => {
+  if (event.target.dataset.remove) {
+    console.log(event.target.dataset.remove);
+    localStorage.removeItem(event.target.dataset.remove); // adding the movie to local storage
+
+    showMoviesStoredInLocalStorage();
+  }
+});
