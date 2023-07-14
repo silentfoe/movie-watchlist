@@ -2,7 +2,7 @@
 // *** Allow app to work when using the 'enter' key. (currently only works using the button)
 // *** refactor code...are there any places where I can drier? What can I clean up to make this better?
 // *** fix console error and tie the show local storage function to when I click the my watchlist text
-// ***
+// *** work on 2 letter movies, currently comes back with an error and will not search when only using 2 letters. 
 // ***
 // ***
 // ***
@@ -224,21 +224,21 @@ function showMoviesStoredInLocalStorage() {
     document.getElementById("show-watchlist").style.justifyContent = 'flex-start'
     document.getElementById("show-watchlist").innerHTML = showMoviesHtml;
   } else {
-    document.getElementById("show-watchlist").innerHTML = `
-      <div class="watchlist-text">
-        <p class="watchlist-text">Your watchlist is looking a little empty...</p>
-        <div class="add-movies">
-          <a href="search.html" class="circle-to-search"
-            ><i
-              class="circle-icon fa-solid fa-circle-plus"
-              style="color: #ffffff"
-            ></i
-          ></a>
-          <p class="watchlist-to-search">Let's add some movies!</p>
-        </div>
-      </div>
+    // document.getElementById("show-watchlist").innerHTML = `
+    //   <div class="watchlist-text">
+    //     <p class="watchlist-text">Your watchlist is looking a little empty...</p>
+    //     <div class="add-movies">
+    //       <a href="search.html" class="circle-to-search"
+    //         ><i
+    //           class="circle-icon fa-solid fa-circle-plus"
+    //           style="color: #ffffff"
+    //         ></i
+    //       ></a>
+    //       <p class="watchlist-to-search">Let's add some movies!</p>
+    //     </div>
+    //   </div>
     
-    `;
+    // `;
   }
 }
 
