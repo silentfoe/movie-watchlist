@@ -228,7 +228,7 @@ function showMoviesStoredInLocalStorage() {
       <div class="watchlist-text">
         <p class="watchlist-text">Your watchlist is looking a little empty...</p>
         <div class="add-movies">
-          <a href="search.html" class="circle-to-search"
+          <a href="index.html" class="circle-to-search"
             ><i
               class="circle-icon fa-solid fa-circle-plus"
               style="color: #ffffff"
