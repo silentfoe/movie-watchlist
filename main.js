@@ -48,7 +48,7 @@ async function getFullMovieData(movieID) {
   try {
     for (let i = 0; i < movieID.length; i++) {
       let res = await fetch(
-        `http://www.omdbapi.com/?apikey=1a68644e&i=${movieID[i]}`
+        `https://www.omdbapi.com/?apikey=1a68644e&i=${movieID[i]}`
       );
       let data = await res.json();
       fullMovieDataArray.push(data);
