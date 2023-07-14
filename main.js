@@ -20,7 +20,7 @@ document.addEventListener("click", async (event) => {
   if (event.target.id === "search-btn") {
     try {
       let res = await fetch(
-        `http://www.omdbapi.com/?apikey=1a68644e&s=${inputVal.value
+        `https://www.omdbapi.com/?apikey=1a68644e&s=${inputVal.value
           .split(" ")
           .join("+")}`
       );
