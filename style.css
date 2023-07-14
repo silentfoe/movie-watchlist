@@ -220,6 +220,10 @@ header {
 
 /* styling for the movie array elements that are being shown in the DOM */
 
+i {
+  cursor: pointer;
+}
+
 .movie-data-container {
   font-family: "Inter", sans-serif;
   color: #ffffff;
