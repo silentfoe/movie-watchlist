@@ -224,21 +224,21 @@ function showMoviesStoredInLocalStorage() {
     document.getElementById("show-watchlist").style.justifyContent = 'flex-start'
     document.getElementById("show-watchlist").innerHTML = showMoviesHtml;
   } else {
-    // document.getElementById("show-watchlist").innerHTML = `
-    //   <div class="watchlist-text">
-    //     <p class="watchlist-text">Your watchlist is looking a little empty...</p>
-    //     <div class="add-movies">
-    //       <a href="search.html" class="circle-to-search"
-    //         ><i
-    //           class="circle-icon fa-solid fa-circle-plus"
-    //           style="color: #ffffff"
-    //         ></i
-    //       ></a>
-    //       <p class="watchlist-to-search">Let's add some movies!</p>
-    //     </div>
-    //   </div>
+    document.getElementById("show-watchlist").innerHTML = `
+      <div class="watchlist-text">
+        <p class="watchlist-text">Your watchlist is looking a little empty...</p>
+        <div class="add-movies">
+          <a href="search.html" class="circle-to-search"
+            ><i
+              class="circle-icon fa-solid fa-circle-plus"
+              style="color: #ffffff"
+            ></i
+          ></a>
+          <p class="watchlist-to-search">Let's add some movies!</p>
+        </div>
+      </div>
     
-    // `;
+    `;
   }
 }
 
